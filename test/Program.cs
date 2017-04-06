@@ -9,13 +9,14 @@ namespace test
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Program Starting...");
+
             Assembly[] ass = AssemblyDiscovery.Discovery();
 
             IServiceCollection sc = new ServiceCollection();
-            
             sc.AddScanServices();
-
             var hostingServiceProvider = sc.BuildServiceProvider();
+
             IServiceTest t = hostingServiceProvider.GetService<IServiceTest>();
             t.TestM();
 
@@ -27,9 +28,8 @@ namespace test
 
             IGenericTest<AbstractImpTest> t2 = hostingServiceProvider.GetService<IGenericTest<AbstractImpTest>>();
 
-            
-
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Press Enter to Quit.");
+            Console.ReadLine();
         }
     }
 }
