@@ -11,7 +11,7 @@ namespace test
         {
             Console.WriteLine("Program Starting...");
 
-            Assembly[] ass = AssemblyDiscovery.Discovery();
+           // Assembly[] ass = AssemblyDiscovery.Discovery();
 
             IServiceCollection sc = new ServiceCollection();
             sc.AddScanServices();

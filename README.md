@@ -1,4 +1,12 @@
 ﻿# DependencyInjectionScan
+
+Updated to fix a typo for Registe should be Register in various places.
+For Help and Explanation, see the Text Program, which should be set as Startup.
+Not sure of use of "Assembly[] ass = AssemblyDiscovery.Discovery();" on line 14 of Program.cs.
+May just be a demo of the method. But amazing it finds 105 assemblies in this small test program!
+Program still works with it commented out.
+
+
 DependencyInjectionScan通过服务注册描述信息完成服务的注册，可以从当前程序集扫描服务注册配置，或者从文件中加载服务注册配置信息，最终完成服务注册。
 ## 使用方法
 1. 引入DepencencyInjectionScan库：Install-Package Microsoft.Extensions.DependencyInjection.Scan
