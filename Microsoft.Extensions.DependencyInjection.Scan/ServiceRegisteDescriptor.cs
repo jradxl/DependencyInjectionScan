@@ -7,7 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection.Scan
     /// <summary>
     /// 服务注册描述信息
     /// </summary>
-    public class ServiceRegisteDescriptor
+    public class ServiceRegisterDescriptor
     {
         public Type ServiceType { get; set; }
         public ServiceLifetime LifeTime { get; set; }

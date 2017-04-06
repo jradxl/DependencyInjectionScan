@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Microsoft.Extensions.DependencyInjection.Scan
 {
-    public class ServiceRegisteDescriptorProviderContext
+    public class ServiceRegisterDescriptorProviderContext
     {
-        public IList<ServiceRegisteDescriptor> Results { get; } = new List<ServiceRegisteDescriptor>();
+        public IList<ServiceRegisterDescriptor> Results { get; } = new List<ServiceRegisterDescriptor>();
     }
 }

@@ -7,12 +7,12 @@ namespace Microsoft.Extensions.DependencyInjection.Scan
     /// <summary>
     /// 服务注册描述信息集合
     /// </summary>
-    public class ServiceRegisteDescriptorCollection
+    public class ServiceRegisterDescriptorCollection
     {
-        public ServiceRegisteDescriptorCollection(IReadOnlyList<ServiceRegisteDescriptor> items)
+        public ServiceRegisterDescriptorCollection(IReadOnlyList<ServiceRegisterDescriptor> items)
         {
             Items = items ?? throw new ArgumentNullException(nameof(items));
         }
-        public IReadOnlyList<ServiceRegisteDescriptor> Items { get; private set; }
+        public IReadOnlyList<ServiceRegisterDescriptor> Items { get; private set; }
     }
 }

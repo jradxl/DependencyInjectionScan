@@ -12,7 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection.Scan
     /// </summary>
     public class ServiceRegister
     {
-        private static void RegisteItem(IServiceCollection services,ServiceLifetime lifeTime,Type serviceType,Type impType,bool allowMultipleImp)
+        private static void RegisterItem(IServiceCollection services,ServiceLifetime lifeTime,Type serviceType,Type impType,bool allowMultipleImp)
         {
             ServiceDescriptor serviceDescriptor = null;
             switch (lifeTime)
@@ -37,7 +37,7 @@ namespace Microsoft.Extensions.DependencyInjection.Scan
             }
            
         }
-        public static void Registe(IServiceCollection services,ServiceRegisteDescriptor descriptor)
+        public static void Register(IServiceCollection services,ServiceRegisterDescriptor descriptor)
         {
             //判断是否是泛型接口
             if (descriptor.ServiceType.GetTypeInfo().IsGenericType)
@@ -54,12 +54,12 @@ namespace Microsoft.Extensions.DependencyInjection.Scan
 
                 foreach (var item in descriptor.GenericParameterTypes)
                 {
-                    RegisteItem(services,descriptor.LifeTime, descriptor.ServiceType.MakeGenericType(item), descriptor.Imp.MakeGenericType(item), descriptor.AllowMultipleImp);
+                    RegisterItem(services,descriptor.LifeTime, descriptor.ServiceType.MakeGenericType(item), descriptor.Imp.MakeGenericType(item), descriptor.AllowMultipleImp);
                 }
             }
             else
             {
-                RegisteItem(services, descriptor.LifeTime, descriptor.ServiceType, descriptor.Imp,descriptor.AllowMultipleImp);
+                RegisterItem(services, descriptor.LifeTime, descriptor.ServiceType, descriptor.Imp,descriptor.AllowMultipleImp);
             }            
         }
     }

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Microsoft.Extensions.DependencyInjection.Scan
 {
-    public interface IServiceRegisteDescriptorCollectionProvider
+    public interface IServiceRegisterDescriptorCollectionProvider
     {
-        ServiceRegisteDescriptorCollection ServiceRegisteDescriptors { get; }
+        ServiceRegisterDescriptorCollection ServiceRegisterDescriptors { get; }
     }
 }

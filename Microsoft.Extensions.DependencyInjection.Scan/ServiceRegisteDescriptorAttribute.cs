@@ -6,9 +6,9 @@ namespace Microsoft.Extensions.DependencyInjection.Scan
     /// 服务注册描述特性
     /// </summary>
     [AttributeUsage(AttributeTargets.Class|AttributeTargets.Interface,AllowMultiple =true,Inherited =false)]
-    public class ServiceRegisteDescriptorAttribute:Attribute
+    public class ServiceRegisterDescriptorAttribute:Attribute
     {
-        public ServiceRegisteDescriptorAttribute(ServiceLifetime lifetime)
+        public ServiceRegisterDescriptorAttribute(ServiceLifetime lifetime)
         {
             LifeTime = lifetime;
         }

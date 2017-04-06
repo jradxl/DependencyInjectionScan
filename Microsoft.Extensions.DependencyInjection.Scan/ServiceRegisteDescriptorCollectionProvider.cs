@@ -6,37 +6,37 @@ using System.Text;
 
 namespace Microsoft.Extensions.DependencyInjection.Scan
 {
-    public class ServiceRegisteDescriptorCollectionProvider : IServiceRegisteDescriptorCollectionProvider
+    public class ServiceRegisterDescriptorCollectionProvider : IServiceRegisterDescriptorCollectionProvider
     {
-        private readonly IServiceRegisteDescriptorProvider[] _serviceRegisteDescriptorProviders;
-        private ServiceRegisteDescriptorCollection _collection;
+        private readonly IServiceRegisterDescriptorProvider[] _serviceRegisterDescriptorProviders;
+        private ServiceRegisterDescriptorCollection _collection;
 
-        public ServiceRegisteDescriptorCollectionProvider(
-           IEnumerable<IServiceRegisteDescriptorProvider> serviceRegisteDescriptorProviders)
+        public ServiceRegisterDescriptorCollectionProvider(
+           IEnumerable<IServiceRegisterDescriptorProvider> serviceRegisterDescriptorProviders)
         {
-            _serviceRegisteDescriptorProviders = serviceRegisteDescriptorProviders
+            _serviceRegisterDescriptorProviders = serviceRegisterDescriptorProviders
                 .OrderBy(p => p.Order)
                 .ToArray();
         }
 
         private void UpdateCollection()
         {
-            var context = new ServiceRegisteDescriptorProviderContext();
+            var context = new ServiceRegisterDescriptorProviderContext();
 
-            for (var i = 0; i < _serviceRegisteDescriptorProviders.Length; i++)
+            for (var i = 0; i < _serviceRegisterDescriptorProviders.Length; i++)
             {
-                _serviceRegisteDescriptorProviders[i].OnProvidersExecuting(context);
+                _serviceRegisterDescriptorProviders[i].OnProvidersExecuting(context);
             }
 
-            for (var i = _serviceRegisteDescriptorProviders.Length - 1; i >= 0; i--)
+            for (var i = _serviceRegisterDescriptorProviders.Length - 1; i >= 0; i--)
             {
-                _serviceRegisteDescriptorProviders[i].OnProvidersExecuted(context);
+                _serviceRegisterDescriptorProviders[i].OnProvidersExecuted(context);
             }
 
-            _collection = new ServiceRegisteDescriptorCollection(
-                new ReadOnlyCollection<ServiceRegisteDescriptor>(context.Results));
+            _collection = new ServiceRegisterDescriptorCollection(
+                new ReadOnlyCollection<ServiceRegisterDescriptor>(context.Results));
         }
-        public ServiceRegisteDescriptorCollection ServiceRegisteDescriptors
+        public ServiceRegisterDescriptorCollection ServiceRegisterDescriptors
         {
             get
             {
